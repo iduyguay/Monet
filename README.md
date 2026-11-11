@@ -1,20 +1,41 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Monet — Quiet Luxury Storefront
 
-# Run and deploy your AI Studio app
+Monet is a React storefront prototype for a curated home and lifestyle collection. It includes category filtering, a client-side shopping cart, and a Gemini-powered section that generates short mood-based copy.
 
-This contains everything you need to run your app locally.
+## What works
 
-View your app in AI Studio: https://ai.studio/apps/temp/2
+- Browse the sample products and filter by category.
+- Add products to the cart; adding an existing product increases its quantity.
+- Generate short copy from one of the preset moods with Gemini.
 
-## Run Locally
+The product catalogue is local sample data. The cart is held in React state and resets when the page reloads. There is no checkout, order processing, or product backend.
 
-**Prerequisites:**  Node.js
+## Run locally
 
+Requirements: Node.js and npm.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```sh
+npm install
+```
+
+Create `.env.local` with:
+
+```env
+GEMINI_API_KEY=your_key
+```
+
+Then start the development server:
+
+```sh
+npm run dev
+```
+
+Create a production build with `npm run build`.
+
+## Stack
+
+React, TypeScript, Vite, and Google Gemini via `@google/genai`.
+
+## API key note
+
+The current Vite configuration exposes the Gemini key in browser code. Use a restricted development key only; this setup is not suitable for a production secret or a public deployment. A production version should call Gemini through a server-side endpoint.
